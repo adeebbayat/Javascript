@@ -1,2 +1,2 @@
-console.log("hello")
-hello
+console.log(hello);                                   
+var hello = 'world';                                 

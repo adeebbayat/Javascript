@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+    gap:30px;
+    margin:50px 0px 0px 50px;
+}
+.square{
+    display:flex;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+
+
+}

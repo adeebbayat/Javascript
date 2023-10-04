@@ -1,0 +1,13 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    align-items: center;
+}
+
+.lineThrough{
+    text-decoration: line-through;
+}
+.button{
+    height:40px;
+}

@@ -1,0 +1,54 @@
+.form{
+    display: flex;
+    justify-content: center;
+}
+.wholeThing{
+    text-align: center;
+}
+.submit{
+    width:150px;
+    height:30px;
+    font-size: large;
+    margin-top: 20px;
+}
+label{
+    font-size: 20pt;
+}
+.text{
+    width:200px;
+    height:30px;
+}
+
+
+
+.whole{
+    text-align: center;
+}
+.products{
+    font-size: 18pt;
+    
+}
+.gap{
+    display: flex;
+    justify-content: end;
+    margin-right: 42%;
+    margin-top: 10px;
+    gap:30px;
+}
+
+
+
+.details{
+    text-align: center;
+    margin-top: 100px;
+}
+.back{
+    text-align: center;
+    margin-top: 20px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap:30px;
+    margin-top: 30px;
+}

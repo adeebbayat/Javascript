@@ -1,0 +1,16 @@
+.button{
+    width:100px;
+    height:30px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap:40px;
+    margin-top: 20px;
+}
+.box{
+    border: 2px solid black;
+    margin:auto;
+    width:30%;
+    padding:20px;
+}

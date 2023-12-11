@@ -15,10 +15,13 @@ const Main = (props) =>{
             .catch(err => console.error(err));
     },[]);
 
+    const removeFromDom = authorId => {
+        setAuthors(authors.filter(author => author._id != authorId));
+    }
 
     return (
         <div>
-            {loaded && <AuthorList authors={authors}/>}
+            {loaded && <AuthorList authors={authors} removeFromDom={removeFromDom}/>}
         </div>
     )
 }

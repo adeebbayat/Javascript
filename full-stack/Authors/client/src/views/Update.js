@@ -1,40 +1,35 @@
-import React, {useState} from 'react';
-import {useNavigate, Link,Navigate} from 'react-router-dom';
+import React, {useState,useEffect} from 'react';
+import {useNavigate, Link,Navigate,useParams} from 'react-router-dom';
 import axios from 'axios';
-import './style.css'
+import '../components/style.css'
 export default () => {
-    
+    const { id } = useParams();
     const [name, setName] = useState("");
     const [errors, setErrors] = useState([])
     const navigate = useNavigate();
 
-    const onSubmitHandler = e  =>{
-        e.preventDefault();
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/authors/' + id)
+            .then(res => {
+                setName(res.data.name);
+            })
+    }, []);
 
-        axios.post('http://localhost:8000/api/authors',{
+    const updateAuthor = e => {
+        e.preventDefault();
+        axios.patch('http://localhost:8000/api/authors/' + id, {
             name
         })
-        .then(res => {
-            console.log(res);
-            navigate("/")
-        })
-        .catch(err=>{
-            const errorResponse = err.response.data.errors; // Get the errors from err.response.data
-                const errorArr = []; // Define a temp error array to push the messages in
-                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-                    errorArr.push(errorResponse[key].message)
-                }
-                // Set Errors
-                setErrors(errorArr);
-        })
+            .then(res => {console.log(res);navigate("/")})
+            .catch(err => console.error(err));
     }
 
     return (
         <div className="form">
-            <form onSubmit={onSubmitHandler}>
+            <form onSubmit={updateAuthor}>
                 <h1>Favorite Author</h1>
                 <Link to={"/"}>Home</Link>
-                <h3>Add a new author:</h3>
+                <h3>Edit this author</h3>
                 <div className="box">
                     <h2>Name:</h2>
                     {errors.map((err, index) => <p style = {{color:'red'}}key={index}>{err}</p>)}
